@@ -1,10 +1,17 @@
 package pencilKata;
 
 public class Pencil {
+	
 
 	public int getDurability() {
 		
-		return 0;
+		return 40000;
+	}
+
+	public String getWriting() {
+		
+		return "Food";
+		
 	}
 
 
