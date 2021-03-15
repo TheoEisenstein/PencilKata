@@ -17,9 +17,17 @@ public class PencilTest {
 	@Test //Requirement: A pencil can lose durability
 	public void pencilWritesDurabilityLost() {
 		Pencil pencil = new Pencil();
-		int durabilityLost = pencil.getWriting().length();
-		assertEquals(39996,pencil.getDurability() - durabilityLost ,0);
+		pencil.write("Food");
+		assertEquals(39996,pencil.getDurability(),0);
 	}
+	
+	@Test 
+	public void pencilSpaceNoDurabilityLost() {
+		Pencil pencil = new Pencil();
+		pencil.write("Cool Story");
+		assertEquals(39991,pencil.getDurability(),0);
+	}
+	
 	
 	@Test //Requirement: A pencil can write
 	public void pencilWrites() {

@@ -7,13 +7,15 @@ public class Pencil {
 	public ArrayList<String> paper = new ArrayList<String>();
 
 	public int getDurability() {
-		
-		return 40000;
+		if(paper==null) {
+			return 40000;
+		}
+		return 40000 - paper.toString().substring(1,paper.toString().length()-1).replaceAll(" ", "").length();
 	}
 
 	public String getWriting() {
 		
-		return "Food";
+		return paper.toString();
 		
 	}
 
