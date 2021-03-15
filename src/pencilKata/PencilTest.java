@@ -17,14 +17,14 @@ public class PencilTest {
 	@Test //Requirement: A pencil can lose durability
 	public void pencilWritesDurabilityLost() {
 		Pencil pencil = new Pencil();
-		pencil.write("Food");
+		pencil.write("food");
 		assertEquals(39996,pencil.getDurability(),0);
 	}
 	
 	@Test 
 	public void pencilSpaceNoDurabilityLost() {
 		Pencil pencil = new Pencil();
-		pencil.write("Cool Story");
+		pencil.write("cool story");
 		assertEquals(39991,pencil.getDurability(),0);
 	}
 	
@@ -34,6 +34,13 @@ public class PencilTest {
 		Pencil pencil = new Pencil();
 		pencil.write("Furthermore, I am of the opinion Charthage should be destroyed.");
 		assertEquals("Furthermore, I am of the opinion Charthage should be destroyed.", pencil.paper.toString().substring(1,pencil.paper.toString().length()-1));
+	}
+	
+	@Test //Requirement: Capital Letters degrade pencil durability faster than lower case
+	public void pencilWritesCapitalsDegradesFaster() {
+		Pencil pencil = new Pencil();
+		pencil.write("Quaint");
+		assertEquals(39993,pencil.getDurability(),0);
 	}
 	
 }
