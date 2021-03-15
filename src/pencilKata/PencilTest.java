@@ -51,4 +51,12 @@ public class PencilTest {
 		assertEquals("This is the wrong approach",pencil.getWriting());
 	}
 	
+	
+	@Test
+	public void pencilIsDullWritesSpaces() {
+		Pencil pencil = new Pencil();
+		pencil.setDurability(-1);
+		pencil.write("the");
+		assertEquals("   ",pencil.getWriting());
+	}
 }
