@@ -43,4 +43,12 @@ public class PencilTest {
 		assertEquals(39993,pencil.getDurability(),0);
 	}
 	
+	@Test 
+	public void pencilAppendsWritingToExistingText() {
+		Pencil pencil = new Pencil();
+		pencil.paper.add("This is the wrong");
+		pencil.write("approach");
+		assertEquals("This is the wrong approach",pencil.getWriting());
+	}
+	
 }

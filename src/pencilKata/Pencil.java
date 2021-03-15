@@ -27,7 +27,14 @@ public class Pencil {
 	}
 
 	public String getWriting() {
-
+		String existingText = "";
+		if(!paper.isEmpty()) {
+			for (int i = 0; i <paper.size();i++) {
+				existingText = existingText+(paper.get(i)+" ");
+			}
+			return existingText.substring(0,existingText.length()-1);
+		}
+			
 		return paper.toString();
 
 	}
