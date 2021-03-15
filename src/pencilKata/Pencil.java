@@ -1,7 +1,10 @@
 package pencilKata;
 
+import java.util.ArrayList;
+
 public class Pencil {
-	
+
+	public ArrayList<String> paper = new ArrayList<String>();
 
 	public int getDurability() {
 		
@@ -11,6 +14,13 @@ public class Pencil {
 	public String getWriting() {
 		
 		return "Food";
+		
+	}
+
+	public String write(String input) {
+		
+		paper.add(input);
+		return paper.toString();
 		
 	}
 

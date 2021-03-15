@@ -21,5 +21,11 @@ public class PencilTest {
 		assertEquals(39996,pencil.getDurability() - durabilityLost ,0);
 	}
 	
-
+	@Test //Requirement: A pencil can write
+	public void pencilWrites() {
+		Pencil pencil = new Pencil();
+		pencil.write("Furthermore, I am of the opinion Charthage should be destroyed.");
+		assertEquals("Furthermore, I am of the opinion Charthage should be destroyed.", pencil.paper.toString().substring(1,pencil.paper.toString().length()-1));
+	}
+	
 }
