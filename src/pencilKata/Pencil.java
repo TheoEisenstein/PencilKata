@@ -157,7 +157,8 @@ public class Pencil {
 		if(durability<=0) return writing;
 		int editStart = writing.indexOf("  "); //Weak
 		paper.clear();
-		writing = writing.substring(0, editStart + 1) + input + writing.substring(editStart + input.length());
+		if(input.length()>durability) input = input.substring(0,durability);
+		writing = writing.substring(0, editStart + 1) + input + writing.substring(editStart + input.length()+1);
 		paper.add(writing);
 		durability = durability-input.replace(" ", "").length();
 		return writing;

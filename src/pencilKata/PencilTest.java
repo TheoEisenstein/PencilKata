@@ -156,7 +156,7 @@ public class PencilTest {
 	@Test
 	public void simpleEditAddition() {
 		Pencil pencil = new Pencil();
-		pencil.write("Have you      today?");
+		pencil.write("Have you       today?");
 		pencil.editText("eaten");
 		assertEquals("Have you eaten today?", pencil.getWriting());
 	}
@@ -164,10 +164,19 @@ public class PencilTest {
 	@Test
 	public void simpleEditDurabilityRestriction() {
 		Pencil pencil = new Pencil();
-		pencil.write("Have you      today?");
+		pencil.write("Have you       today?");
 		pencil.setDurability(0);
 		pencil.editText("eaten");
-		assertEquals("Have you      today?", pencil.getWriting());
+		assertEquals("Have you       today?", pencil.getWriting());
+	}
+	
+	@Test
+	public void simpleEditDurabilityPencilDulls() {
+		Pencil pencil = new Pencil();
+		pencil.write("Have you       today?");
+		pencil.setDurability(3);
+		pencil.editText("eaten");
+		assertEquals("Have you eat   today?", pencil.getWriting());
 	}
 	
 }
