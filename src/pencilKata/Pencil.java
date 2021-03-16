@@ -152,12 +152,14 @@ public class Pencil {
 
 	}
 
-	public String editText(String string) {
+	public String editText(String input) {
 		String writing = getWriting();
+		if(durability<=0) return writing;
 		int editStart = writing.indexOf("  "); //Weak
 		paper.clear();
-		writing = writing.substring(0, editStart + 1) + string + writing.substring(editStart + string.length());
+		writing = writing.substring(0, editStart + 1) + input + writing.substring(editStart + input.length());
 		paper.add(writing);
+		durability = durability-input.replace(" ", "").length();
 		return writing;
 
 	}

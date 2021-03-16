@@ -161,4 +161,13 @@ public class PencilTest {
 		assertEquals("Have you eaten today?", pencil.getWriting());
 	}
 	
+	@Test
+	public void simpleEditDurabilityRestriction() {
+		Pencil pencil = new Pencil();
+		pencil.write("Have you      today?");
+		pencil.setDurability(0);
+		pencil.editText("eaten");
+		assertEquals("Have you      today?", pencil.getWriting());
+	}
+	
 }
