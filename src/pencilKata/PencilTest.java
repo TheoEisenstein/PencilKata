@@ -117,4 +117,28 @@ public class PencilTest {
 		assertEquals("The      was crowned      on Tuesday.", pencil.getWriting());
 	}
 	
+	@Test
+	public void eraserDegredation() {
+		Pencil pencil = new Pencil();
+		pencil.write("Nice!");
+		pencil.erase(2);
+		assertEquals(48, pencil.getEraserDurability(),0);
+	}
+	
+	@Test
+	public void eraseSpecifiedNumberOfCharacters() {
+		Pencil pencil = new Pencil();
+		pencil.write("Nice!");
+		pencil.erase(2);
+		assertEquals("Nic", pencil.getWriting());
+	}
+	
+	@Test
+	public void eraseWithNoDurability() {
+		Pencil pencil = new Pencil();
+		pencil.write("Bad!");
+		pencil.setEraserDurability(0);
+		pencil.erase(2);
+		assertEquals("Bad!", pencil.getWriting());
+	}
 }

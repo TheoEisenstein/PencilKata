@@ -10,6 +10,7 @@ public class Pencil {
 	private String dullText = "";
 	private int spaces = 0;
 	private int lengthPencil = 4;
+	private int eraserDurability = 50;
 	
 	public int spaceCount(String input) {
 		
@@ -141,6 +142,32 @@ public class Pencil {
 		writing = writing.substring(0,eraseStart) + theReplaceSpace + writing.substring(eraseStart+eraseSpace);
 		paper.add(writing);
 		return writing;
+		
+	}
+
+	public String erase(int numToErase) {
+		String writing = getWriting();
+		if(numToErase>eraserDurability) numToErase = eraserDurability;
+		String theReplaceSpace = "";
+		for(int i = 0; i < numToErase; i++) {
+			theReplaceSpace = theReplaceSpace + " ";		
+		}
+		
+		paper.clear();
+		writing = writing.substring(0,writing.length()-numToErase);
+		paper.add(writing);
+		eraserDurability -= numToErase;
+		return writing;
+		
+	}
+
+	public int getEraserDurability() {
+		return eraserDurability;
+	}
+
+	public int setEraserDurability(int input) {
+		eraserDurability = input;
+		return eraserDurability;
 		
 	}
 
