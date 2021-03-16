@@ -73,7 +73,15 @@ public class PencilTest {
 		Pencil pencil = new Pencil();
 		pencil.setDurability(2);
 		pencil.write("x\n");
-		assertEquals(1,pencil.getDurability(),1);
+		assertEquals(1,pencil.getDurability(),0);
+	}
+	
+	@Test
+	public void pencilSharpened() {
+		Pencil pencil = new Pencil();
+		pencil.setDurability(2);
+		pencil.sharpen();
+		assertEquals(40000, pencil.getDurability(),0);
 	}
 	
 }

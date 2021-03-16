@@ -103,4 +103,10 @@ public class Pencil {
 		
 	}
 
+	public int sharpen() {
+		durability = 40000;
+		return durability;
+		
+	}
+
 }
