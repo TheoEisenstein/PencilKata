@@ -55,7 +55,7 @@ public class PencilTest {
 	@Test
 	public void pencilIsDullWritesSpaces() {
 		Pencil pencil = new Pencil();
-		pencil.setDurability(-1);
+		pencil.setDurability(0);
 		pencil.write("the");
 		assertEquals("   ",pencil.getWriting());
 	}
