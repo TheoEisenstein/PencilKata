@@ -108,4 +108,13 @@ public class PencilTest {
 		assertEquals("The King was crowned      on Tuesday.", pencil.getWriting());
 	}
 	
+	@Test
+	public void eraseTargetWordTwice() {
+		Pencil pencil = new Pencil();
+		pencil.write("The King was crowned King on Tuesday.");
+		pencil.eraseTarget("King");
+		pencil.eraseTarget("King");
+		assertEquals("The      was crowned      on Tuesday.", pencil.getWriting());
+	}
+	
 }
