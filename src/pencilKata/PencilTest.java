@@ -129,8 +129,8 @@ public class PencilTest {
 	public void eraseSpecifiedNumberOfCharacters() {
 		Pencil pencil = new Pencil();
 		pencil.write("Nice!");
-		pencil.erase(2);
-		assertEquals("Nic", pencil.getWriting());
+		pencil.erase(3);
+		assertEquals("Ni   ", pencil.getWriting());
 	}
 	
 	@Test
@@ -141,4 +141,14 @@ public class PencilTest {
 		pencil.erase(2);
 		assertEquals("Bad!", pencil.getWriting());
 	}
+	
+	@Test
+	public void eraseWithLimitedDurability() {
+		Pencil pencil = new Pencil();
+		pencil.write("The King was crowned King on Tuesday.");
+		pencil.setEraserDurability(2);
+		pencil.eraseTarget("King");
+		assertEquals("The King was crowned Ki   on Tuesday.", pencil.getWriting());
+	}
+	
 }

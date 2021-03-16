@@ -131,6 +131,7 @@ public class Pencil {
 
 	public String eraseTarget(String toErase) {
 		String writing = getWriting();
+		if(toErase.length()>eraserDurability) toErase = toErase.substring(eraserDurability);
 		int eraseStart = writing.lastIndexOf(toErase);
 		int eraseSpace = toErase.length(); 
 		String theReplaceSpace = "";
@@ -154,7 +155,7 @@ public class Pencil {
 		}
 		
 		paper.clear();
-		writing = writing.substring(0,writing.length()-numToErase);
+		writing = writing.substring(0,writing.length()-numToErase) + theReplaceSpace;
 		paper.add(writing);
 		eraserDurability -= numToErase;
 		return writing;
