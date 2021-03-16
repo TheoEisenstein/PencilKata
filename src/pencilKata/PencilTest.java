@@ -151,4 +151,14 @@ public class PencilTest {
 		assertEquals("The King was crowned Ki   on Tuesday.", pencil.getWriting());
 	}
 	
+	//Editing Tests
+	
+	@Test
+	public void simpleEditAddition() {
+		Pencil pencil = new Pencil();
+		pencil.write("Have you      today?");
+		pencil.editText("eaten");
+		assertEquals("Have you eaten today?", pencil.getWriting());
+	}
+	
 }

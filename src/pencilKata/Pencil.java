@@ -172,4 +172,15 @@ public class Pencil {
 		
 	}
 
+	public String editText(String string) {
+		String writing = getWriting();
+		int editStart = writing.indexOf("  ");
+		paper.clear();
+		writing = writing.substring(0,editStart+1)+string+writing.substring(editStart+string.length());
+		paper.add(writing);
+		return writing;
+		
+		
+	}
+
 }
