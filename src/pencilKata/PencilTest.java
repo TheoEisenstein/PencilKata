@@ -99,5 +99,13 @@ public class PencilTest {
 		pencil.sharpen();
 		assertEquals(5, pencil.getDurability(),0);
 	}
+	//Eraser Tests
+	@Test
+	public void eraseTargetWord() {
+		Pencil pencil = new Pencil();
+		pencil.write("The King was crowned King on Tuesday.");
+		pencil.eraseTarget("King");
+		assertEquals("The King was crowned      on Tuesday.", pencil.getWriting());
+	}
 	
 }

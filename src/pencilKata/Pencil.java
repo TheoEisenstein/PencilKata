@@ -117,14 +117,31 @@ public class Pencil {
 		
 	}
 
-	public void setLength(int length) {
+	public int setLength(int length) {
 		lengthPencil = length;
+		return length;
 		
 	}
 
 	public int getLength() {
 		
 		return lengthPencil;
+	}
+
+	public String eraseTarget(String toErase) {
+		String writing = getWriting();
+		int eraseStart = writing.lastIndexOf(toErase);
+		int eraseSpace = toErase.length(); 
+		String theReplaceSpace = "";
+		for(int i = 0; i < eraseSpace; i++) {
+			theReplaceSpace = theReplaceSpace + " ";
+		}
+		
+		paper.clear();
+		writing = writing.substring(0,eraseStart) + theReplaceSpace + writing.substring(eraseStart+eraseSpace);
+		paper.add(writing);
+		return writing;
+		
 	}
 
 }
