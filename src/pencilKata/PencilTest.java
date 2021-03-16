@@ -85,6 +85,13 @@ public class PencilTest {
 	}
 	
 	@Test
+	public void pencilSharpenedLosesLength() {
+		Pencil pencil = new Pencil();
+		pencil.sharpen();
+		assertEquals(3, pencil.getLength(),0);
+	}
+	
+	@Test
 	public void pencilUnsharpenable() {
 		Pencil pencil = new Pencil();
 		pencil.setDurability(5);

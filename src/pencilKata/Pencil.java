@@ -111,7 +111,7 @@ public class Pencil {
 			
 			return getDurability();
 		}
-		
+		lengthPencil--;
 		durability = 40000;
 		return durability;
 		
@@ -120,6 +120,11 @@ public class Pencil {
 	public void setLength(int length) {
 		lengthPencil = length;
 		
+	}
+
+	public int getLength() {
+		
+		return lengthPencil;
 	}
 
 }
