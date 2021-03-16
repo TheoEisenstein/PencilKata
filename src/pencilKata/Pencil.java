@@ -9,6 +9,7 @@ public class Pencil {
 	private int requiredDurability;
 	private String dullText = "";
 	private int spaces = 0;
+	private int lengthPencil = 4;
 	
 	public int spaceCount(String input) {
 		
@@ -43,7 +44,7 @@ public class Pencil {
 			return durability;
 		}
 		
-		if (durability != 4000) {
+		if (durability != 40000) {
 			return durability - requiredDurability;
 		}
 		
@@ -104,8 +105,20 @@ public class Pencil {
 	}
 
 	public int sharpen() {
+		
+		
+		if(lengthPencil<1) { 
+			
+			return getDurability();
+		}
+		
 		durability = 40000;
 		return durability;
+		
+	}
+
+	public void setLength(int length) {
+		lengthPencil = length;
 		
 	}
 
