@@ -68,4 +68,12 @@ public class PencilTest {
 		assertEquals("fami    ",pencil.getWriting());
 	}
 	
+	@Test
+	public void pencilNewLineNoDegredation() {
+		Pencil pencil = new Pencil();
+		pencil.setDurability(2);
+		pencil.write("x\n");
+		assertEquals(1,pencil.getDurability(),1);
+	}
+	
 }

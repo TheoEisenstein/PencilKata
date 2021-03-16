@@ -37,11 +37,19 @@ public class Pencil {
 
 	public int getDurability() {
 		
+		
+		
 		if (paper.isEmpty()) {
-			return 40000;
+			return durability;
 		}
+		
+		if (durability != 4000) {
+			return durability - requiredDurability;
+		}
+		
 		requiredDurability = writingAnalysis(paper.get(0).toString());
-		return (40000 - requiredDurability);
+		return (40000 - requiredDurability); 
+		
 			}
 
 		
