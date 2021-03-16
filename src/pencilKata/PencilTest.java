@@ -33,7 +33,7 @@ public class PencilTest {
 	public void pencilWrites() {
 		Pencil pencil = new Pencil();
 		pencil.write("Furthermore, I am of the opinion Charthage should be destroyed.");
-		assertEquals("Furthermore, I am of the opinion Charthage should be destroyed.", pencil.paper.toString().substring(1,pencil.paper.toString().length()-1));
+		assertEquals("Furthermore, I am of the opinion Charthage should be destroyed.", pencil.getWriting());
 	}
 	
 	@Test //Requirement: Capital Letters degrade pencil durability faster than lower case
@@ -59,4 +59,13 @@ public class PencilTest {
 		pencil.write("the");
 		assertEquals("   ",pencil.getWriting());
 	}
+	
+	@Test
+	public void pencilBecomesDullWhiteWriting() {
+		Pencil pencil = new Pencil();
+		pencil.setDurability(4);
+		pencil.write("famished");
+		assertEquals("fami    ",pencil.getWriting());
+	}
+	
 }

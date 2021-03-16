@@ -5,28 +5,48 @@ import java.util.ArrayList;
 public class Pencil {
 
 	public ArrayList<String> paper = new ArrayList<String>();
-	private int durability = 0;
+	private int durability = 40000;
+	private int requiredDurability;
 	private String dullText = "";
+	private int spaces = 0;
 	
+	public int spaceCount(String input) {
+		
+		for(int i = 0; i < input.length(); i++) {
+			char spaceCheck = input.charAt(i);
+			if(spaceCheck==' ') spaces = spaces++;
+			
+		}
+		return spaces;
+	}
+	
+	public int writingAnalysis(String input) {
+			String inputSpaceless = input.replaceAll(" ", "");
+			requiredDurability = 0;
+		for (int i = 0; i < inputSpaceless.length(); i++) {
+			if (Character.isUpperCase(inputSpaceless.charAt(i))) {
+				requiredDurability = requiredDurability + 2;
+			}
+			if (Character.isLowerCase(inputSpaceless.charAt(i))) {
+				requiredDurability = requiredDurability + 1;
+
+			}
+		}
+		return requiredDurability;
+	}
 
 	public int getDurability() {
 		
 		if (paper.isEmpty()) {
 			return 40000;
 		}
-		String writingAnalysis = paper.toString().substring(1, paper.toString().length() - 1).replaceAll(" ", "");
-		for (int i = 0; i < writingAnalysis.length(); i++) {
-			if (Character.isUpperCase(writingAnalysis.charAt(i))) {
-				durability = durability + 2;
-			}
-			if (Character.isLowerCase(writingAnalysis.charAt(i))) {
-				durability = durability + 1;
-
+		requiredDurability = writingAnalysis(paper.get(0).toString());
+		return (40000 - requiredDurability);
 			}
 
-		}
-		return 40000 - durability;
-	}
+		
+		
+	
 
 	public String getWriting() {
 		String existingText = "";
@@ -52,15 +72,26 @@ public class Pencil {
 			paper.add(dullText);
 			return paper.toString();
 		}
+	
+		if(writingAnalysis(input)>durability) {
+			spaces = requiredDurability-durability;
+			String spaceToAdd = "";
+			for(int j = 0; j <spaces;j++) {
+				spaceToAdd = spaceToAdd+" ";
+			}
+			paper.add(input.substring(0,durability)+spaceToAdd);
+			return paper.toString();
+		}
 		
 		paper.add(input);
 		return paper.toString();
 		
+	
 	}
 
 	public int setDurability(int inputDurability) {
-		durability = -1;
-		return -1;
+		durability = inputDurability;
+		return durability;
 		
 	}
 
