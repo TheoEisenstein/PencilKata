@@ -1,4 +1,4 @@
-package pencilKata;
+//package pencilKata;  Commented out for ease of running in terminal.
 
 import java.util.ArrayList;
 
