@@ -1,4 +1,4 @@
-package pencilKata;
+//package pencilKata; Commented out for ease of compiling and running in command prompt.
 
 import static org.junit.Assert.*;
 import static org.junit.Assert.assertEquals;
