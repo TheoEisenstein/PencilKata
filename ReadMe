@@ -1,0 +1,37 @@
+Pencil Durability Kata
+_________________________________________________________________
+
+Simulate some functions of a pencil including, writing, becoming dull, sharpening, erasing, and editing. Utilize TDD to build.
+
+For a more formal and in depth description, visit: https://github.com/PillarTechnology/kata-pencil-durability
+
+At present there are only 22 test cases. There are a great many more that could be written to refine this work. A fun one to try, and a good one to revisit!
+
+
+
+COMPILE/BUILD INSTRUCTIONS
+_________________________________________________________________
+
+**Instructions written from a windows command prompt perspective**
+
+1) Open command prompt.
+
+2) Navigate to where the PencilTest and Pencil file is located, wherever you unzipped or cloned the files.
+  -Example: \Desktop\Kata\PencilKata\src\pencilKata
+
+
+//Two *dependencies* to easily run the tests have been added to this location for your convenience.
+//-hamcrest-core-1.3.jar
+//-Add junit-4.12.jar
+
+3) Enter this command:
+
+javac -cp junit-4.12.jar;. PencilTest.java Pencil.java
+
+  Result: .class files will be created
+
+4) Enter this command
+
+java -cp junit-4.12.jar;hamcrest-core-1.3.jar;. org.junit.runner.JUnitCore PencilTest
+
+  Result: JUnit should spit out if the tests are failing or not. There is no user interface, just the satisfaction of tests passing.
