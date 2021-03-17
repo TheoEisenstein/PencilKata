@@ -154,14 +154,50 @@ public class Pencil {
 
 	public String editText(String input) {
 		String writing = getWriting();
-		if(durability<=0) return writing;
-		int editStart = writing.indexOf("  "); //Weak
+		if (durability <= 0)
+			return writing;
+		int editStart = writing.indexOf("  "); // Weak
+		if (input.length() > durability)
+			input = input.substring(0, durability);
+		input = collisionCheck(editStart, input);
 		paper.clear();
-		if(input.length()>durability) input = input.substring(0,durability);
-		writing = writing.substring(0, editStart + 1) + input + writing.substring(editStart + input.length()+1);
+
+		writing = writing.substring(0, editStart + 1) + input;
 		paper.add(writing);
-		durability = durability-input.replace(" ", "").length();
+		durability = durability - input.replace(" ", "").length();
 		return writing;
+
+	}
+
+	private String collisionCheck(int editStart, String input) {
+		String writing = getWriting();
+		writing = writing.substring(editStart + 1);
+		String collisionWriting = "";
+		String append = "";
+		int runTime = 0;
+		runTime = Math.min(input.length(), writing.length());
+
+		if (input.length() > writing.length()) {
+			append = input.substring(runTime);
+		}
+		if (input.length() < writing.length()) {
+			append = writing.substring(runTime);
+		}
+
+		for (int i = 0; i < runTime; i++) {
+			if (writing.charAt(i) == input.charAt(i) || writing.charAt(i) == ' ') {
+				collisionWriting = collisionWriting + input.charAt(i);
+			} else {
+				collisionWriting = collisionWriting + "@";
+			}
+
+		}
+		if (append != "") {
+			collisionWriting = collisionWriting + append;
+			return collisionWriting;
+		}
+
+		return collisionWriting;
 
 	}
 

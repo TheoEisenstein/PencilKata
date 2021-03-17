@@ -179,4 +179,12 @@ public class PencilTest {
 		assertEquals("Have you eat   today?", pencil.getWriting());
 	}
 	
+	@Test
+	public void simpleEditCollisionTest() {
+		Pencil pencil = new Pencil();
+		pencil.write("I smell  banana");
+		pencil.editText("cranberry");
+		assertEquals("I smell c@an@@@ry", pencil.getWriting());
+	}
+	
 }
